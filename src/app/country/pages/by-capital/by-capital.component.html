@@ -1,0 +1,25 @@
+<h2>By Capital</h2>
+<hr>
+
+<div class="row">
+    <div class="col">
+        <app-country-search (onEnter)="searchCountry( $event )"
+                            (onDebounce)="suggestions( $event )"
+                            placeholder="Search by capital..."></app-country-search>
+    </div>
+</div>
+<hr>
+
+<div *ngIf="isError"
+     class="alert alert-danger">
+    No results for {{ search }}!
+</div>
+
+
+<div *ngIf="countries.length > 0" class="row">
+    <div class="col">
+        <app-country-table [countries]="countries"></app-country-table>
+    </div>
+</div>
+
+
